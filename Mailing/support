@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+from module.init_mailing import InitMailing
+from module.basic_setup import InstallationMailer
+from module.send_message import test_message 
+import subprocess, sys
+
+RED = "\033[31m"
+GREEN = "\033[32m"
+YELLOW = "\033[33m"
+BLUE = "\033[34m"
+RESET = "\033[0m"
+
+def mailing():
+    params = sys.argv
+
+    if len(params) == 3:
+        if params[1] == '--test-message':
+            email = params[2]
+            test_message(recipient=email)
+    else:
+    
+        print(f"{BLUE}Mailer Digital Octane{RESET}\n")
+        select_script = int(input(
+            f"[1] {YELLOW}Installation Mailer{RESET}\n"
+            f"[2] {GREEN}TESTING MAILER{RESET}\n"
+            f"\n"
+            f"[0] {RED}DELETE MAILER{RESET}\n"
+            f">>> "
+            ))
+        if select_script == 1:
+            InitMailing()
+            InstallationMailer()
+        if select_script == 2:
+            test_message(recipient=input("To: "))
+        if select_script == 0:
+            subprocess.run("./module/clear.sh", shell=True)
+
+try:
+    mailing()
+except KeyboardInterrupt:print(f'{RED}\nExit...{RESET}')

@@ -1,0 +1,11 @@
+[Unit]
+Description=Generic Email for %i
+
+[Service]
+User=%i
+ExecStart=/home/%i/Parser/genericEmail/venv/bin/python3 /home/%i/Parser/genericEmail/Generics.py
+WorkingDirectory=/home/%i/Parser/genericEmail
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

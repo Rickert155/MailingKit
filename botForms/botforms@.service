@@ -1,0 +1,11 @@
+[Unit]
+Description=Bot Forms for %i
+
+[Service]
+User=%i
+ExecStart=/home/%i/Parser/BotForms/venv/bin/python3 /home/%i/Parser/BotForms/botForms.py
+WorkingDirectory=/home/%i/Parser/BotForms
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

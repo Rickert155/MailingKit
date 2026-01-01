@@ -1,0 +1,10 @@
+Data/login.json
+Users/*.json
+Base/*
+venv/
+profileChrome/
+Result/
+Trash/
+**/__pycache__/
+**/letter.json
+letter.json
